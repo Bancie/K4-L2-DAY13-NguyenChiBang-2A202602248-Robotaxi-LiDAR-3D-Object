@@ -11,4 +11,4 @@ Lệnh A/B/C chạy một lần trên máy của Nguyễn Chí Bằng (Mac Apple
 | Nguyễn Chí Bằng | 2A202602248 | Vận hành lệnh trên máy này | Vận hành lệnh trên máy này | Vận hành lệnh trên máy này |
 | Đặng Văn Nam | 2A202602295 | Chưa xác nhận | Chưa xác nhận | Chưa xác nhận |
 | Hoàng Văn Đạt | 2A202602267 | Chưa xác nhận | Chưa xác nhận | Chưa xác nhận |
-| Nguyễn Việt Tiến | 2A202602315 | Chưa xác nhận | Chưa xác nhận | Chưa xác nhận |
+| Nguyễn Việt Tiến | 2A202602315 | Xem lại kết quả A/B/C và viết nhận xét | Xem lại kết quả A/B/C và viết nhận xét | Xem lại kết quả A/B/C và viết nhận xét |
