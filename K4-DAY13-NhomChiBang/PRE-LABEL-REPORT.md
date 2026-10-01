@@ -63,7 +63,11 @@ Chưa tự viết. Cùng yêu cầu như mục trên.
 
 ### Nguyễn Việt Tiến — 2A202602315
 
-Chưa tự viết. Cùng yêu cầu như mục trên.
+Tôi xem lại ba lượt inference A/B/C và ba ca QC trong thư mục `K4-DAY13-NhomChiBang`. Kết quả cho thấy `run-A` chỉ sinh ra 1 hộp `vehicles` với `mean_z = 0.330`, trong khi `run-B` có 13 hộp và `mean_z = 1.034`, với nhiều class khác nhau như `vehicles`, `pedestrian` và `two-wheels`; `run-C` giữ cùng `delta = 1.73` nhưng đổi `voxel = 0.16` sang `0.32`, và chỉ còn 6 hộp toàn là `pedestrian`. Như vậy, `delta` và `pillar` đều ảnh hưởng trực tiếp đến số lượng, loại và vị trí hộp, nhưng không thể kết luận cấu hình nào đúng hơn vì frame `demo` không có ground truth và side-view chỉ cung cấp bằng chứng tương đối chứ không phải nhãn chuẩn.
+
+Tôi đồng ý với nhận định về phép chuyển z: `z_model = z_source - 0.075 - delta`, rồi JSON trả về `z_source = z_model + 0.075 + delta`. Nếu quên bước ngược thì toàn bộ hộp sẽ lệch theo cùng một lượng `1.805 m`, tương ứng với tổ hợp `delta + z_ground = 1.73 + 0.075`. Bằng chứng rõ nhất là `case-batch-z`: 13/13 hộp giảm đồng loạt đúng 1.805 m, class/x/y/yaw/kích thước/score không đổi; `case-one-box-z` lại chỉ có hộp index 0 bị lệch, còn 12 hộp còn lại vẫn giữ vị trí như prediction B. Như vậy, lỗi không phải chỉ là “một hộp sai”, mà là phép chuyển z batch đang bị lệch. Điều này cho thấy pipeline cần dừng và sửa lại trước khi đưa kết quả vào CVAT Robotaxi.
+
+Về mặt kết luận, bản chạy này là một kiểm tra pipeline chứ không phải dữ liệu ground truth. Tôi không chốt rằng B hay C “đúng”, bởi vì thiếu label chuẩn, thiếu view top/front/camera, và không có đủ bằng chứng để xác định yaw, class thật và hộp thiếu/thừa. Tuy nhiên, bằng chứng từ `run-A/B/C` và `qc-cases` cho thấy sai lệch z là hiện tượng rõ ràng, cần được giải quyết trước khi import hoặc dùng làm nhãn chính thức. Đây là một lỗi của chuyển đổi tọa độ, không phải chỉ là khác biệt về score hay số lượng hộp.
 
 ## LC ghi nhận riêng
 
