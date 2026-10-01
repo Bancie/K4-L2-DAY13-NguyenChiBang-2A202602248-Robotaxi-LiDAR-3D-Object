@@ -35,3 +35,9 @@ provided-results/
 !data/ATTRIBUTION.md
 !data/LICENSE.txt
 student-bundles/
+
+# Track the filled group folder, including JSON, CSV, and images.
+!K4-DAY13-NhomChiBang/
+!K4-DAY13-NhomChiBang/run-*/
+!K4-DAY13-NhomChiBang/qc-cases/
+!K4-DAY13-NhomChiBang/**
