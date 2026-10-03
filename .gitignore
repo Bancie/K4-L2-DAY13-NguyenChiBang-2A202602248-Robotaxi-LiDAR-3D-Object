@@ -5,6 +5,12 @@ __pycache__/
 .venv/
 .env
 .env.*
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Point clouds, model weights, archives, and run artifacts
 *.pcd
 *.bin
 *.ply
@@ -26,18 +32,18 @@ output/
 run-*/
 qc-cases/
 provided-results/
-# K4-DAY13-*/
 .DS_Store
+
+# Filled group work: names, student IDs, reports, and experiment output.
+# Blank templates at the repo root stay tracked.
+K4-DAY13-*/
+
+# Extracted Student runtime (Docker image + input PCD). Download from Releases.
+student-prelabel-*/
+student-bundles/
 
 # Only the explicitly licensed KITTI adaptation is published.
 !data/demo.pcd
 !data/provenance.json
 !data/ATTRIBUTION.md
 !data/LICENSE.txt
-student-bundles/
-
-# Track the filled group folder, including JSON, CSV, and images.
-!K4-DAY13-NhomChiBang/
-!K4-DAY13-NhomChiBang/run-*/
-!K4-DAY13-NhomChiBang/qc-cases/
-!K4-DAY13-NhomChiBang/**
