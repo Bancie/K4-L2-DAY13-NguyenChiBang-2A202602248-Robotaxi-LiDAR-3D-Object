@@ -1,4 +1,4 @@
-# Runtime, private course data and filled submissions
+# Runtime and secrets
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -9,8 +9,9 @@ __pycache__/
 *.key
 credentials.json
 secrets/
+.DS_Store
 
-# Point clouds, model weights, archives, and run artifacts
+# Data that must not be published: raw clouds, weights, archives, local dumps
 *.pcd
 *.bin
 *.ply
@@ -20,30 +21,45 @@ secrets/
 *.tar
 *.tar.gz
 *.zip
+*.mp4
+input/
+data/*
+output/
+provided-results/
+student-prelabel-*/
+student-bundles/
+
+# Loose run artifacts outside the group submission
 *.csv
 *.json
 *.png
 *.jpg
 *.jpeg
-*.mp4
-input/
-data/*
-output/
 run-*/
 qc-cases/
-provided-results/
-.DS_Store
 
-# Filled group work: names, student IDs, reports, and experiment output.
-# Blank templates at the repo root stay tracked.
-K4-DAY13-*/
-
-# Extracted Student runtime (Docker image + input PCD). Download from Releases.
-student-prelabel-*/
-student-bundles/
-
-# Only the explicitly licensed KITTI adaptation is published.
+# Licensed KITTI demo stays in the repo
 !data/demo.pcd
 !data/provenance.json
 !data/ATTRIBUTION.md
 !data/LICENSE.txt
+
+# Group submission used for grading: report, roster, and A/B/C evidence
+!K4-DAY13-NhomChiBang/
+!K4-DAY13-NhomChiBang/run-*/
+!K4-DAY13-NhomChiBang/qc-cases/
+!K4-DAY13-NhomChiBang/**
+
+# Disallowed types stay ignored even inside the submission folder
+K4-DAY13-NhomChiBang/**/*.pcd
+K4-DAY13-NhomChiBang/**/*.bin
+K4-DAY13-NhomChiBang/**/*.ply
+K4-DAY13-NhomChiBang/**/*.pth
+K4-DAY13-NhomChiBang/**/*.pt
+K4-DAY13-NhomChiBang/**/*.onnx
+K4-DAY13-NhomChiBang/**/*.tar
+K4-DAY13-NhomChiBang/**/*.tar.gz
+K4-DAY13-NhomChiBang/**/*.zip
+K4-DAY13-NhomChiBang/**/*.mp4
+K4-DAY13-NhomChiBang/**/*.jpg
+K4-DAY13-NhomChiBang/**/*.jpeg
